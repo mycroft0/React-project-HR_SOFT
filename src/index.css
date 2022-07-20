@@ -29,3 +29,9 @@ code {
   border: 1px solid black;
 
 }
+.header{
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  height: 10vh;
+}
