@@ -1,11 +1,12 @@
 import {Component} from "react";
-import {COLORS} from "./helpers/constants"
+import {COLORS, BUTTON_TYPES} from "./helpers/constants"
 import Header from "./components/Header";
 
 import NavBar from "./components/NavBar";
 
 
 const {RED, PURPLE, BROWN, BLUE,GREEN, ORANGE} = COLORS
+const {HIDE, SHOW} = BUTTON_TYPES
 
 class App extends Component{
     constructor(props) {
@@ -52,13 +53,17 @@ class App extends Component{
         })
     }
 
+    getRandomNum = () =>{
+        Math.floor(Math.random()*100)
+    }
+
 
     render(){
         const {circles, chosenCircle, isHeaderShown} = this.state;
         return(
             <>
-                {isHeaderShown && <Header/> }
-                <button onClick={this.toggleHeader}>{isHeaderShown ? "Hide":"Shown"}</button>
+                {isHeaderShown && <Header color={chosenCircle && circles[chosenCircle - 1].color} /> }
+                <button onClick={this.toggleHeader}>{isHeaderShown ? HIDE : SHOW}</button>
                 <div className="container">
                     {
                         this.state.circles.map(circle =>{

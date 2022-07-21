@@ -6,14 +6,20 @@ class Header extends Component{
     }
 
     componentDidMount() {
-        document.addEventListener('click',(e)=>{
-            console.log(e.target.localName === 'header')
-        })
+        document.addEventListener('click',this.click)
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click',this.click)
+    }
+
+    click = e =>{
+        console.log(e.target.localName === 'header')
     }
 
     render() {
         return(
-            <header className="header">
+            <header className="header" style={{backgroundColor: this.props.color}}>
                 Header
             </header>
         )

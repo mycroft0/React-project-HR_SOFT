@@ -6,3 +6,8 @@ export const COLORS = {
     BLUE:'blue',
     ORANGE: 'orange'
 }
+
+export const BUTTON_TYPES = {
+    HIDE: 'HIDE',
+    SHOW: 'SHOW'
+}
