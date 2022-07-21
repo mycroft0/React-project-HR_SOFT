@@ -53,16 +53,18 @@ class App extends Component{
         })
     }
 
-    getRandomNum = () =>{
-        Math.floor(Math.random()*100)
+    handleClick = (e) =>{
+        this.setState({chosenCircle: e.target.id},()=>{
+            console.log(this.state.chosenCircle)
+        })
     }
-
 
     render(){
         const {circles, chosenCircle, isHeaderShown} = this.state;
         return(
             <>
                 {isHeaderShown && <Header color={chosenCircle && circles[chosenCircle - 1].color} /> }
+                <NavBar/>
                 <button onClick={this.toggleHeader}>{isHeaderShown ? HIDE : SHOW}</button>
                 <div className="container">
                     {
