@@ -1,46 +1,24 @@
-import {useEffect, useState, useRef} from "react";
+import {useContext} from "react";
+import {ColorThemeContext} from "../../context/colorThemeProvider";
 
-const NavBar = () => {
+const NavBar = () =>{
 
-    const [count,setCount] = useState(0)
+    const {themeColor, setThemeColor} = useContext(ColorThemeContext)
 
-    const ref = useRef()
-
-    useEffect(()=>{
-        /*fetch('kkkk')
-            .then(res => res.json())
-            .then(res=>{
-                setCount(res)
-            })*/
-        document.addEventListener('click', clickHandler)
-        return(
-            document.removeEventListener('click', clickHandler)
-        )
-    },[])
-
-    const clickHandler = (e) => {
-        console.log(e.target)
+    const handleThemeColor = e =>{
+        setThemeColor(e.target.value)
     }
 
-    const changeCount = arg  =>{
-        setCount(prev => ++prev)
-        setCount(prev => ++prev)
-        setCount(prev => ++prev)
-        setCount(prev => ++prev)
-
-    }
-
-    const changeState = () => {
-        console.log(ref.current)
-    }
-
-    return (
+    return(
         <div>
-            <button  onClick={changeCount}>change count</button>
-            <button ref={ref} onClick={changeState}>Click ref</button>
-            {count}
-        </div>  )
-
+            NavBar
+            <select value={themeColor} onChange={handleThemeColor} name = 'color' id = 'color'>
+                <option value = "white">white</option>
+                <option value = "green">green</option>
+                <option value = "orange">orange</option>
+            </select>
+        </div>
+    )
 }
 
 export default NavBar

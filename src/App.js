@@ -3,6 +3,7 @@ import {COLORS, BUTTON_TYPES} from "./helpers/constants"
 import Header from "./components/Header";
 
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 
 const {RED, PURPLE, BROWN, BLUE,GREEN, ORANGE} = COLORS
@@ -64,7 +65,7 @@ class App extends Component{
         return(
             <>
                 {isHeaderShown && <Header color={chosenCircle && circles[chosenCircle - 1].color} /> }
-                <NavBar/>
+                <NavBar isHeaderShown = {isHeaderShown.toString()}/>
                 <button onClick={this.toggleHeader}>{isHeaderShown ? HIDE : SHOW}</button>
                 <div className="container">
                     {
@@ -81,6 +82,8 @@ class App extends Component{
                         })
                     }
                 </div>
+
+                <Footer/>
             </>
 
         );
