@@ -3,6 +3,10 @@ import {ColorThemeContext} from "../../context/colorThemeProvider";
 
 const NavBar = () =>{
 
+
+    //const obj = useContext(ColorThemeContext)
+    // obj.setThemeColor(e.target.value)
+
     const {themeColor, setThemeColor} = useContext(ColorThemeContext)
 
     const handleThemeColor = e =>{
