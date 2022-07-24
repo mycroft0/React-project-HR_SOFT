@@ -1,9 +1,8 @@
-import {useContext} from "react";
-import {ColorThemeContext} from "../../context/colorThemeProvider";
+import {useThemeContext} from "../../context/colorThemeProvider";
 
 const Footer = () =>{
 
-    const {themeColor} = useContext(ColorThemeContext)
+    const {themeColor} = useThemeContext()
     console.log('themeColor', themeColor)
 
     return(
